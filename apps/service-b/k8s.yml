@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
       - name: service-b
-        image: localhost:5000/service-b:1
+        image: 192.168.29.55:5000/mytest/service-b:1
         ports:
         - containerPort: 8080
+      imagePullSecrets: 
+      - name: nexus-creds
 ---
 apiVersion: v1
 kind: Service

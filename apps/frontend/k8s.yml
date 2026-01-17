@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-a
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service-a
+      app: frontend
   template:
     metadata:
       labels:
-        app: service-a
+        app: frontend
     spec:
       containers:
-      - name: service-a
-        image: 192.168.29.55:5000/mytest/service-a:1
+      - name: frontend
+        image: 192.168.29.55:5000/mytest/frontend:1
         ports:
         - containerPort: 8080
       imagePullSecrets: 
-      - name: nexus-creds
+      - name: nexus
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-a
+  name: frontend
 spec:
   selector:
-    app: service-a
+    app: frontend
   ports:
   - port: 80
     targetPort: 8080

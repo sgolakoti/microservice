@@ -1,0 +1,5 @@
+kubectl create secret docker-registry nexus-creds \
+  --docker-server=192.168.29.55:5000 \
+  --docker-username=admin \
+  --docker-password=<NEXUS_PASSWORD> \
+  --docker-email=test@example.com
